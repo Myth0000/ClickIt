@@ -87,9 +87,14 @@ namespace ClickIt.Views
         public void UpdateSquareRowAndColumn()
         {
             Random random = new();
-
-            RandomRow = random.Next(0, MaxRows);
-            RandomColumn = random.Next(0, MaxColumns);
+            int row = RandomRow;
+            int column = RandomColumn;
+            do
+            {
+                RandomRow = random.Next(0, MaxRows);
+                RandomColumn = random.Next(0, MaxColumns);
+            } while (row == RandomRow && column == RandomColumn);
+            
         }
 
         private void SquareButton_Click(object sender, RoutedEventArgs e)
