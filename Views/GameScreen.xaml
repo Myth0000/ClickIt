@@ -8,14 +8,25 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <StackPanel>
-        
+ 
         <Grid Height="200" Width="200">
-            
+            <Grid.Resources>
+                <Style x:Key="GridBox" TargetType="Rectangle">
+                    <Setter Property="Height" Value="{Binding Grid.Height}"/>
+                    <Setter Property="Width" Value="{Binding Grid.Width}"/>
+                    <Setter Property="Stroke" Value="Gray"/>
+                </Style>
+            </Grid.Resources>
+                
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -27,10 +38,23 @@
                     />
 
 
-            <Rectangle Height="{Binding Grid.Width}" Width="{Binding Grid.Height}" Stroke="Gray"/>
-            <Rectangle Grid.Row="0" Grid.Column="1" Height="{Binding Grid.Width}" Width="{Binding Grid.Height}" Stroke="Gray"/>
-            <Rectangle Grid.Row="1" Height="{Binding Grid.Width}" Width="{Binding Grid.Height}" Stroke="Gray"/>
-            <Rectangle Grid.Row="1" Grid.Column="1" Height="{Binding Grid.Width}" Width="{Binding Grid.Height}" Stroke="Gray"/>
+            <Rectangle Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="0" Grid.Column="1" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="0" Grid.Column="2" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="0" Grid.Column="3" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="1" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="1" Grid.Column="1" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="1" Grid.Column="2" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="1" Grid.Column="3" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="2" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="2" Grid.Column="1" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="2" Grid.Column="2" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="2" Grid.Column="3" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="3" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="3" Grid.Column="1" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="3" Grid.Column="2" Style="{StaticResource GridBox}"/>
+            <Rectangle Grid.Row="3" Grid.Column="3" Style="{StaticResource GridBox}"/>
+
 
         </Grid>
 

@@ -70,8 +70,8 @@ namespace ClickIt.Views
         
 
 
-        int MaxRows = 2;
-        int MaxColumns = 2;
+        int MaxRows = 4;
+        int MaxColumns = 4;
         int IncreaseScoreBy = 3;
 
 
