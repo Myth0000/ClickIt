@@ -111,5 +111,48 @@ namespace ClickIt.Views
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
+
+        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            var MousePosition = Mouse.GetPosition(MainGrid);
+
+            int row = 0;
+            int column = 0;
+            double accumulatedHeight = 0.0;
+            double accumulatedWidth = 0.0;
+
+            // calc row mouse was over
+            foreach (var rowDefinition in MainGrid.RowDefinitions)
+            {
+                accumulatedHeight += rowDefinition.ActualHeight;
+                if (accumulatedHeight >= MousePosition.Y)
+                    break;
+                row++;
+            }
+
+            // calc column mouse was over
+            foreach (var columnDefinition in MainGrid.ColumnDefinitions)
+            {
+                accumulatedWidth += columnDefinition.ActualWidth;
+                if (accumulatedWidth >= MousePosition.X)
+                    break;
+                column++;
+            }
+
+
+            // If the user clicks something other then the square, end the game
+            if (row != RandomRow || column != RandomColumn) { EndGame(); }
+            
+        }
+
+        private void EndGame(bool failedGame = true)
+        {
+            if (failedGame)
+            {
+                MainGrid.Background = Brushes.Red;
+                ClickingSquare.IsHitTestVisible = false;
+            }
+        }
     }
 }

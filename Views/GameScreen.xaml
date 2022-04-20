@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <StackPanel>
- 
-        <Grid Height="200" Width="200">
+
+        <Grid x:Name="MainGrid" Height="200" Width="200" Background="Transparent" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
             <Grid.Resources>
                 <Style x:Key="GridBox" TargetType="Rectangle">
                     <Setter Property="Height" Value="{Binding Grid.Height}"/>
@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Background="Black" 
+            <Button x:Name="ClickingSquare" Background="Black" 
                     Height="{Binding SquareHeight}" Width="{Binding SquareWidth}"
                     Grid.Row="{Binding RandomRow}" Grid.Column="{Binding RandomColumn}"
                     Click="SquareButton_Click"
@@ -58,7 +58,7 @@
 
         </Grid>
 
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="Score : "/>
             <TextBlock Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
