@@ -97,7 +97,7 @@ namespace ClickIt.Views
             
         }
 
-        private void SquareButton_Click(object sender, RoutedEventArgs e)
+        private void SquareButton_PreviewMouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
             Score += IncreaseScoreBy;
             UpdateSquareRowAndColumn();

@@ -34,7 +34,7 @@
             <Button x:Name="ClickingSquare" Background="Black" 
                     Height="{Binding SquareHeight}" Width="{Binding SquareWidth}"
                     Grid.Row="{Binding RandomRow}" Grid.Column="{Binding RandomColumn}"
-                    Click="SquareButton_Click"
+                    PreviewMouseLeftButtonDown="SquareButton_PreviewMouseLeftButtonDown"
                     />
 
 
