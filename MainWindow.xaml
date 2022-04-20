@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClickIt"
         xmlns:views="clr-namespace:ClickIt.Views"
         mc:Ignorable="d"
-        Title="Click It" Height="300" Width="300" ResizeMode="NoResize">
+        Title="Click It" Height="305" Width="300" ResizeMode="NoResize">
     <Grid>
         <views:GameScreen/>
     </Grid>

@@ -7,9 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <StackPanel>
+    <StackPanel Background="LightGray">
 
-        <Grid x:Name="MainGrid" Height="200" Width="200" Background="Transparent" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
+        <TextBlock Text="Click It" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+        <Grid x:Name="MainGrid" Height="200" Width="200" Background="White" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
             <Grid.Resources>
                 <Style x:Key="GridBox" TargetType="Rectangle">
                     <Setter Property="Height" Value="{Binding Grid.Height}"/>
@@ -58,7 +60,14 @@
 
         </Grid>
 
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontWeight" Value="Medium"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </StackPanel.Resources>
             <TextBlock Text="Score : "/>
             <TextBlock Text="{Binding Score, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
