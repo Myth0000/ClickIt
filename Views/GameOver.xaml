@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="305" d:DesignWidth="300">
     <Grid Background="LightGray">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -14,17 +15,27 @@
         </Grid.RowDefinitions>
             
         <TextBlock Text="Game Over" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="1" Content="Play Again" Width="160" Height="40" Background="Gray" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" Content="Play Again" Width="160" Height="40" Background="Gray" VerticalAlignment="Center" BorderThickness="0"/>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2">
             <StackPanel.Resources>
                 <Style TargetType="TextBlock">
                     <Setter Property="FontWeight" Value="Medium"/>
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
             </StackPanel.Resources>
-            <TextBlock Text="Score : "/>
-            <TextBlock Text="0"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Score : "/>
+                <TextBlock Text="{Binding Score}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="High Score : "/>
+                <TextBlock Text="{Binding HighScore}"/>
+            </StackPanel>
         </StackPanel>
+        
+        
     </Grid>
 </UserControl>

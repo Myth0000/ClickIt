@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,18 @@ namespace ClickIt.Views
     /// </summary>
     public partial class GameOver : UserControl
     {
+        public string Score { get; set; }
+        public string HighScore { get; set; }
         public GameOver()
         {
+
+            this.DataContext = this;
+            string[] ScoresFile = File.ReadAllLines(@"C:\Users\infin\source\repos\ClickIt\ScoresData.txt");
+            Score = ScoresFile[0];
+            HighScore = ScoresFile[1];
+
             InitializeComponent();
+            
         }
     }
 }
