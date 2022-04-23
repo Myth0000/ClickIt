@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="Click It" Height="305" Width="300" ResizeMode="NoResize">
     <Grid>
-        <views:GameScreen/>
+        <views:GameOver/>
     </Grid>
 </Window>

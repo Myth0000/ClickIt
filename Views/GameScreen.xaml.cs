@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -100,8 +101,21 @@ namespace ClickIt.Views
         private void SquareButton_PreviewMouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
             Score += IncreaseScoreBy;
+            UpdateScoreData();
             UpdateSquareRowAndColumn();
         }
+
+        private void UpdateScoreData(string textFilePath= @"C:\Users\infin\source\repos\ClickIt\ScoresData.txt")
+        {
+            // Line 1(Array[0]) = Score
+            // Line 2(Array[1]) = High Score
+            string[] ScoresFile = File.ReadAllLines(textFilePath);
+            ScoresFile[0] = Score.ToString();
+            if (Score > Convert.ToInt32(ScoresFile[1])) { ScoresFile[1] = Score.ToString(); }
+
+            File.WriteAllLines(textFilePath, ScoresFile);
+        }
+
 
         // PROPERY CHANGED STUFF
         public event PropertyChangedEventHandler PropertyChanged;
